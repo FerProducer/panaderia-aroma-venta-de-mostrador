@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOCK | CONTROL DE VENTA</title>
+  <meta name="description" content="Explora nuestro menú de burritos: combos irresistibles con bebida y fruta incluida.">
+  <link rel="icon" type="image/png" href="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2007_35_26%20PM.png?raw=true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <style>
+    :root {
+      --principal: #fff8f0;
+      --acento: #c0392b;
+      --texto: #2c3e50;
+      --claro: #f9f9f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--principal);
+      color: var(--texto);
+      line-height: 1.6;
+      padding-top: 60px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--claro);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: var(--acento);
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.02);
+    }
+
+    .item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      loading: lazy;
+    }
+
+    .item-content {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .item-content h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .item-content p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .precio {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: var(--acento);
+    }
+
+    .boton {
+      margin-top: 1rem;
+      background: var(--acento);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .boton:hover {
+      background: #a93226;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Panadería Aroma</h1>
+  </header>
+
+  <main>
+    <h2>Productos</h2>
+    <div class="menu-grid">
+
+      <div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2009_42_18%20PM.png?raw=true" alt="Burrito Clásico" loading="lazy">
+        <div class="item-content">
+          <h3>Pay de queso</h3>
+          <p>Pay de queso (rebanada).</p>
+          <div class="precio">$35 MXN</div>
+          <button class="boton" onclick="enviarPedido('Pay de queso')">Seleccionar</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_33%20PM.png?raw=true" alt="Burrito Vegetariano" loading="lazy">
+        <div class="item-content">
+          <h3>Carlota de limon grande</h3>
+          <p>presentacion de 260gr</p>
+          <div class="precio">$70 MXN</div>
+          <button class="boton" onclick="enviarPedido('Carlota de Limon grande')">Seleccionar</button>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_28%20PM.png?raw=true" alt="Burrito Pollo Chipotle" loading="lazy">
+        <div class="item-content">
+          <h3>Chocoflan</h3>
+          <p>Rebanada de Chocoflan normal</p>
+          <div class="precio">$60 MXN</div>
+          <button class="boton" onclick="enviarPedido('Burrito Pollo Chipotle')">Seleccionar</button>
+        </div>
+      </div>
+
+<div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_28%20PM.png?raw=true" alt="Burrito Pollo Chipotle" loading="lazy">
+        <div class="item-content">
+          <h3>Coyotas</h3>
+          <p>Presentacion con 3 piezas</p>
+          <div class="precio">$30 MXN</div>
+          <button class="boton" onclick="enviarPedido('Burrito Pollo Chipotle')">Seleccionar</button>
+        </div>
+      </div>
+
+<div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_28%20PM.png?raw=true" alt="Burrito Pollo Chipotle" loading="lazy">
+        <div class="item-content">
+          <h3>Carlota de limon chica</h3>
+          <p>90gr de Carlota de limon artesanal</p>
+          <div class="precio">$30 MXN</div>
+          <button class="boton" onclick="enviarPedido('Burrito Pollo Chipotle')">Seleccionar</button>
+        </div>
+      </div>
+
+<div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_28%20PM.png?raw=true" alt="Burrito Pollo Chipotle" loading="lazy">
+        <div class="item-content">
+          <h3>Brownie</h3>
+          <p>Rebanada de brownie extra chocolate</p>
+          <div class="precio">$50 MXN</div>
+          <button class="boton" onclick="enviarPedido('Burrito Pollo Chipotle')">Seleccionar</button>
+        </div>
+      </div>
+
+<div class="item">
+        <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2011_27_28%20PM.png?raw=true" alt="Burrito Pollo Chipotle" loading="lazy">
+        <div class="item-content">
+          <h3>Panque de Chocolate con Platano</h3>
+          <p>Rebanada de panque de chocolate con platano extra grande</p>
+          <div class="precio">$50 MXN</div>
+          <button class="boton" onclick="enviarPedido('Burrito Pollo Chipotle')">Seleccionar</button>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <script>
+  const urlCaja = 'https://script.google.com/macros/s/AKfycbz3g8hd4IOUzEfN4AEoiUQSOWf5EEk5yviAL31mh5OFpdNHFaQc-V3dUxQA6JU6xzxQ/exec'; // Sustituye con tu URL real
+  const urlCocina = 'https://script.google.com/macros/s/AKfycbyYWN7HqyIMQ1L_mhXX1X22aYgR_dcLW3mgqTz7rLvMgOy1hVcBfB6sSXd8hKLNKYGhLA/exec'; // Sustituye con tu URL real
+
+  function enviarPedido(combo) {
+    const data = new URLSearchParams();
+    data.append('combo', combo);
+
+    // Enviar a Caja
+    fetch(urlCaja, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data
+    }).then(() => {
+      console.log("Registrado en Caja");
+    }).catch(err => {
+      console.error("Error al registrar en Caja", err);
+    });
+
+    // Enviar a Cocina
+    fetch(urlCocina, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data
+    }).then(() => {
+      console.log("Registrado en Cocina");
+    }).catch(err => {
+      console.error("Error al registrar en Cocina", err);
+    });
+
+    alert(`¡Pedido enviado! Combo seleccionado: ${combo}`);
+  }
+</script>
+
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+    <p>Gracias por visitarnos</p>
+  </div>
+
+  <footer>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <img src="https://github.com/FerProducer/Burritos-El-Poderoso/blob/main/ChatGPT%20Image%20Jul%2018,%202025,%2007_35_26%20PM.png?raw=true" alt="Logo Burritos El Poderoso" style="height: 200px;">
+    </div>
+  </footer>
+
+</body>
+</html>
