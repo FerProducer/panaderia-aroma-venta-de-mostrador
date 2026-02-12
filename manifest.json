@@ -1,0 +1,21 @@
+{
+  "name": "AROMA | Control de Venta",
+  "short_name": "AROMA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F3EFE0",
+  "theme_color": "#4E3629",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://github.com/FerProducer/panaderia-aroma-venta-de-mostrador/blob/main/ChatGPT%20Image%2011%20feb%202026,%2012_38_55%20p.m..png?raw=true",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://github.com/FerProducer/panaderia-aroma-venta-de-mostrador/blob/main/ChatGPT%20Image%2011%20feb%202026,%2012_38_55%20p.m..png?raw=true",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
