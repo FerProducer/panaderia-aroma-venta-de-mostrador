@@ -250,6 +250,7 @@ h2 {
   function enviarPedido(combo) {
     const data = new URLSearchParams();
     data.append('combo', combo);
+    data.append('precio', precio);
 
     // Enviar a Caja
     fetch(urlCaja, {
