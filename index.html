@@ -6,7 +6,7 @@
   <title>LUVAFE | CAFE Y REPOSTERIA</title>
   
   <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4E3629">
+  <meta name="theme-color" content="#4E3629">
 
   <meta name="description" content="Explora nuestro menú de postres: Sabores irresistibles con amor y tradición incluida.">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/Favicon_.png">
@@ -14,159 +14,229 @@
   <style>
     :root {
        --principal: #F3EFE0;
-      --acento: #4E3629;
-      --texto: #A66E4E;
-      --claro: #f9f9f9;
+       --acento: #4E3629;
+       --texto: #A66E4E;
+       --claro: #f9f9f9;
     }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    html {
+      scroll-behavior: smooth; /* Salto suave entre páginas */
+    }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--principal);
-  color: var(--texto);
-  line-height: 1.6;
-  padding-top: 60px;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--claro);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
-  text-align: center;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--principal);
+      color: var(--texto);
+      line-height: 1.6;
+      padding-top: 100px; /* Espacio superior para el header fijo */
+    }
 
-header h1 {
-  font-size: 1.5rem;
-  color: var(--acento);
-}
+    /* --- NUEVO ESTILO DEL ENCABEZADO --- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--claro);
+      padding: 0.2rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-main {
-  padding: 6rem 2rem 2rem;
-}
+    /* Espaciador invisible para equilibrar el header y forzar el logo al centro */
+    .header-espaciador {
+      flex: 1;
+    }
 
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
+    .logo-container {
+      flex: 0 1 auto;
+      display: flex;
+      justify-content: center;
+    }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
-}
+    /* Contenedor de las pestañas a la derecha */
+    .pestañas {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
 
-/* TARJETA DEL PRODUCTO */
+    .pestaña {
+      text-decoration: none;
+      color: var(--acento);
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
 
-.item {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+    .pestaña:hover {
+      background-color: #eaddd7;
+    }
 
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+    .pestaña.destacada {
+      background-color: var(--acento);
+      color: var(--principal);
+    }
 
-.item:hover {
-  transform: scale(1.02);
-}
+    .pestaña.destacada:hover {
+      background-color: #3b281f;
+    }
+    /* ----------------------------------- */
 
-.item img {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-}
+    main {
+      padding: 2rem 2rem 2rem;
+      scroll-margin-top: 140px; /* Evita que el header tape el título al hacer clic en las pestañas */
+    }
 
-/* CONTENIDO */
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
 
-.item-content {
-  padding: 1rem;
-  text-align: center;
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
 
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
+    /* TARJETA DEL PRODUCTO */
+    .item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
 
-.item-content h3 {
-  margin-bottom: 0.5rem;
-}
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-.item-content p {
-  font-size: 0.9rem;
-  color: #555;
-}
+    .item:hover {
+      transform: scale(1.02);
+    }
 
-.precio {
-  font-weight: bold;
-  margin-top: 0.5rem;
-  color: var(--acento);
-}
+    .item img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
 
-/* BOTÓN */
+    /* CONTENIDO */
+    .item-content {
+      padding: 1rem;
+      text-align: center;
 
-.boton {
-  margin-top: auto;
-  background: var(--acento);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
-.boton:hover {
-  background: #a93226;
-}
+    .item-content h3 {
+      margin-bottom: 0.5rem;
+    }
 
-/* RESPONSIVE */
+    .item-content p {
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-@media (max-width: 600px) {
+    .precio {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      color: var(--acento);
+    }
 
-  header {
-    padding: 1rem;
-  }
+    /* BOTÓN */
+    .boton {
+      margin-top: auto;
+      background: var(--acento);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
 
-  header h1 {
-    font-size: 1.2rem;
-  }
+    .boton:hover {
+      background: #a93226;
+    }
 
-  main {
-    padding: 5rem 1rem 2rem;
-  }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 15px;
+      }
+      
+      .header-espaciador {
+        display: none; /* Quitamos el espaciador en móviles */
+      }
 
-  .item img {
-    height: 200px;
-  }
+      .pestañas {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
+      body {
+        padding-top: 180px; /* Más espacio en móviles porque el header crece */
+      }
+      
+      main {
+        scroll-margin-top: 190px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 2rem 1rem 2rem;
+      }
+
+      .item img {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
+  
   <header>
-     <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-      <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/TEXTO%20SIN%20ELEMENTOS.png" alt="Logo Panaderia Aroma" style="height: 100px;">
+    <!-- 1. Espacio vacío a la izquierda -->
+    <div class="header-espaciador"></div>
+    
+    <!-- 2. Logo al centro -->
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/TEXTO%20SIN%20ELEMENTOS.png" alt="Logo Panaderia Aroma" style="height: 75px;">
     </div>
+    
+    <!-- 3. Pestañas a la derecha -->
+    <nav class="pestañas">
+      <a href="#postres" class="pestaña destacada">Postres</a>
+      <a href="#desayunos" class="pestaña">Desayunos</a>
+      <a href="#bebidas" class="pestaña">Bebidas</a>
+    </nav>
   </header>
 
-  <main>
+  <!-- Añadido id="postres" para la navegación -->
+  <main id="postres">
     <h2>Ordena Aquí</h2>
     <div class="menu-grid">
 
@@ -176,7 +246,7 @@ h2 {
           <h3>Pay de Queso</h3>
           <p>Pay de queso (rebanada).</p>
           <div class="precio">$35 MXN</div>
-          <button class="boton" onclick="enviarPedido('Pay de Queso', 35)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Pay de queso')">Seleccionar</button>
         </div>
       </div>
 
@@ -186,7 +256,7 @@ h2 {
           <h3>Carlota de limon Grande</h3>
           <p>presentacion de 260gr</p>
           <div class="precio">$70 MXN</div>
-          <button class="boton" onclick="enviarPedido('Carlota de limon Grande', 70)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Carlota de Limon Grande')">Seleccionar</button>
         </div>
       </div>
 
@@ -196,54 +266,55 @@ h2 {
           <h3>Chocoflan</h3>
           <p>Rebanada de Chocoflan con Cajeta</p>
           <div class="precio">$60 MXN</div>
-          <button class="boton" onclick="enviarPedido('Chocoflan', 65)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Chocoflan')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/Gemini_Generated_Image_vb04xcvb04xcvb04.png" alt="Coyotas de Cajeta" loading="lazy">
         <div class="item-content">
           <h3>Coyotas</h3>
           <p>Presentacion con 3 piezas</p>
-          <div class="precio">$35 MXN</div>
-          <button class="boton" onclick="enviarPedido('Coyotas de Cajeta', 35)">Seleccionar</button>
+          <div class="precio">$30 MXN</div>
+          <button class="boton" onclick="enviarPedido('Coyotas de Cajeta')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/Gemini_Generated_Image_sqju59sqju59sqju.png" alt="Carlota de Limon Chica" loading="lazy">
         <div class="item-content">
           <h3>Carlota de limon chica</h3>
           <p>90gr de Carlota de limon artesanal</p>
           <div class="precio">$30 MXN</div>
-          <button class="boton" onclick="enviarPedido('Carlota de Limon chica', 30)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Carlota de Limon chica')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/Gemini_Generated_Image_5odj375odj375odj.png" alt="Brownie" loading="lazy">
         <div class="item-content">
           <h3>Brownie</h3>
           <p>Rebanada de brownie extra chocolate</p>
           <div class="precio">$50 MXN</div>
-          <button class="boton" onclick="enviarPedido('Brownie', 50)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Brownie')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://raw.githubusercontent.com/FerProducer/panaderia-aroma-venta-de-mostrador/refs/heads/main/Gemini_Generated_Image_uywpw9uywpw9uywp.png" alt="Panque de Chocolate" loading="lazy">
         <div class="item-content">
           <h3>Panque de Chocolate con Platano</h3>
           <p>Rebanada de panque de chocolate con platano extra grande</p>
           <div class="precio">$50 MXN</div>
-          <button class="boton" onclick="enviarPedido('Panque de Chocolate', 50)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Panque de Chocolate')">Seleccionar</button>
         </div>
       </div>
       
     </div>
   </main>
 
- <main>
+  <!-- Añadido id="desayunos" para la navegación -->
+  <main id="desayunos">
     <h2>Desayunos</h2>
     <div class="menu-grid">
 
@@ -253,7 +324,7 @@ h2 {
           <h3>Chilaquiles Divorciados</h3>
           <p>Lo mejor de dos mundos en un solo plato. Crujientes totopos de maíz bañados mitad en nuestra fresca salsa verde artesanal y mitad en nuestra tradicional salsa roja al guajillo. Separados por una suave porción de frijoles refritos con queso gratinado y coronados con crema, queso desmoronado, finos aros de cebolla morada y hojas de cilantro fresco. El equilibrio perfecto para tu desayuno.</p>
           <div class="precio">$125 MXN</div>
-         <button class="boton" onclick="enviarPedido('Chilaquiles Divorciados', 125)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Pay de queso')">Seleccionar</button>
         </div>
       </div>
 
@@ -263,7 +334,7 @@ h2 {
           <h3>Chilaquiles Verdes Clásicos</h3>
           <p>Crujientes totopos de maíz recién hechos, bañados en nuestra salsa verde artesanal de tomatillo con un toque exacto de picor. Van coronados con crema fresca, queso desmoronado, finos aros de cebolla morada y hojas de cilantro. El desayuno tradicional perfecto y reconfortante.</p>
           <div class="precio">$110 MXN</div>
-          <button class="boton" onclick="enviarPedido('Chilaquiles Verdes Clásicos', 110)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Carlota de Limon Grande')">Seleccionar</button>
         </div>
       </div>
 
@@ -273,7 +344,7 @@ h2 {
           <h3>Chilaquiles al Chipotle</h3>
           <p>Totopos de maíz dorados a la perfección, bañados en nuestra irresistible salsa artesanal de jitomate y chile chipotle con un toque profundo y ahumado. Servidos con pollo deshebrado y coronados con un huevo frito tierno, hilos de crema fresca, queso desmoronado, aros de cebolla morada y hojas de cilantro. Un desayuno con carácter y sabor inigualable.</p>
           <div class="precio">$110 MXN</div>
-          <button class="boton" onclick="enviarPedido('Chilaquiles al Chipotle', 110)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Chocoflan')">Seleccionar</button>
         </div>
       </div>
       
@@ -283,37 +354,35 @@ h2 {
           <h3>Chilaquiles Rojos</h3>
           <p>Crujientes totopos de maíz bañados en nuestra tradicional salsa roja casera, coronados con crema, queso fresco y aros de cebolla. ¡Un clásico mexicano para empezar el día con energía!</p>
           <div class="precio">$110 MXN</div>
-          <button class="boton" onclick="enviarPedido('Chilaquiles Rojos', 110)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Carlota de Limon chica')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://github.com/FerProducer/panaderia-aroma-venta-de-mostrador/blob/main/Gemini_Generated_Image_i3ijtoi3ijtoi3ij.png?raw=true" alt="Coyotas de Cajeta" loading="lazy">
         <div class="item-content">
           <h3>HotCakes</h3>
           <p>Torre de tres hotcakes esponjosos con un enrejado de crema artesanal especiada y un toque de canela. Acompañados de higos frescos dulces y grosellas silvestres sobre una cama de miel de maple.</p>
           <div class="precio">$99 MXN</div>
-          <button class="boton" onclick="enviarPedido('HotCakes', 99)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Coyotas de Cajeta')">Seleccionar</button>
         </div>
       </div>
 
-
-<div class="item">
+      <div class="item">
         <img src="https://github.com/FerProducer/panaderia-aroma-venta-de-mostrador/blob/main/Gemini_Generated_Image_3ips143ips143ips.png?raw=true" alt="Huevos al Gusto" loading="lazy">
         <div class="item-content">
           <h3>Huevos al Gusto</h3>
           <p>Dos huevos frescos preparados exactamente como te gustan (revueltos, estrellados, tibios u omelette). Acompáñalos con tus ingredientes favoritos para crear el desayuno perfecto.</p>
           <div class="precio">$99 MXN</div>
-          <button class="boton" onclick="enviarPedido('Huevos al Gusto', 99)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('Huevos al Gusto')">Seleccionar</button>
         </div>
       </div>
 
-
-      
     </div>
   </main>
   
- <main>
+  <!-- Añadido id="bebidas" para la navegación -->
+  <main id="bebidas">
     <h2>Bebidas</h2>
     <div class="menu-grid">
 
@@ -323,7 +392,7 @@ h2 {
           <h3>Licuado Energético de Plátano y Avena</h3>
           <p>Una mezcla cremosa y reconfortante a base de plátano dulce, hojuelas de avena integral y nueces pecanas, delicadamente perfumada con vainilla. Servido bien frío y coronado con un espolvoreado de canela. La bebida perfecta para llenarte de energía y equilibrar los sabores de tu desayuno.</p>
           <div class="precio">$75 MXN</div>
-          <button class="boton" onclick="enviarPedido('LICUADO ENERGETICO', 75)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('LICUADO ENERGETICO')">Seleccionar</button>
         </div>
       </div>
 
@@ -333,7 +402,7 @@ h2 {
           <h3>Café de Olla Tradicional</h3>
           <p>La esencia de la tradición mexicana en una taza. Café de grano de tueste medio infusionado lentamente con piloncillo, canela, clavos de olor y un toque sutil de cáscara de naranja. Una bebida cálida, aromática y naturalmente dulce, servida en su clásica vasija de barro para realzar su sabor inigualable.</p>
           <div class="precio">$40 MXN</div>
-          <button class="boton" onclick="enviarPedido('CAFE DE OLLA', 40)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('CAFE DE OLLA')">Seleccionar</button>
         </div>
       </div>
 
@@ -343,7 +412,7 @@ h2 {
           <h3>Sopa Verde de la Casa</h3>
           <p>Aterciopelada sopa de verduras de temporada y hierbas frescas, servida con un remolino de crema, especias ahumadas y una ramita de cilantro fresco. Una opción reconfortante y vibrante para abrir el apetito.</p>
           <div class="precio">$85 MXN</div>
-          <button class="boton" onclick="enviarPedido('SOPA VERDE DE LA CASA', 85)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('SOPA VERDE DE LA CASA')">Seleccionar</button>
         </div>
       </div>
       
@@ -353,7 +422,7 @@ h2 {
           <h3>CAFE AMERICANO</h3>
           <p>200 ML</p>
           <div class="precio">$0 MXN</div>
-          <button class="boton" onclick="enviarPedido('CAFE GRATIS', 0)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('CAFE GRATIS')">Seleccionar</button>
         </div>
       </div>
       
@@ -363,47 +432,47 @@ h2 {
           <h3>TÉ</h3>
           <p>200 ML (Manzanilla, Verde o Lavanda)</p>
           <div class="precio">$35 MXN</div>
-          <button class="boton" onclick="enviarPedido('TÉ', 35)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('CAFE GRATIS')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://github.com/FerProducer/panaderia-aroma-venta-de-mostrador/blob/main/wp-image-5046.webp?raw=true" alt="Coyotas de Cajeta" loading="lazy">
         <div class="item-content">
           <h3>COCA COLA</h3>
           <p>355 ML</p>
           <div class="precio">$25 MXN</div>
-          <button class="boton" onclick="enviarPedido('COCACOLA 355', 25)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('COCACOLA 355')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://lagranbodega.vteximg.com.br/arquivos/ids/306428-1000-1000/7501055362585.jpg?v=639003876961600000" alt="Carlota de Limon Chica" loading="lazy">
         <div class="item-content">
           <h3>FANTA</h3>
           <p>355 ML</p>
           <div class="precio">$25 MXN</div>
-          <button class="boton" onclick="enviarPedido('FANTA 355', 25)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('FANTA 355')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://storage.googleapis.com/rec-productos/7441003545236.jpg" alt="Brownie" loading="lazy">
         <div class="item-content">
           <h3>FRESCA DE LATA</h3>
           <p>355 ML</p>
           <div class="precio">$25 MXN</div>
-          <button class="boton" onclick="enviarPedido('FRESCA 355', 25)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('FRESCA 355')">Seleccionar</button>
         </div>
       </div>
 
-<div class="item">
+      <div class="item">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO-b2LwhCfGbU3InaW2_29d_HbF6NNC3CPEoXxxCRmkoiwnCcJO0fuPzVg&s=10" alt="Panque de Chocolate" loading="lazy">
         <div class="item-content">
           <h3>CAFE OLÉ</h3>
           <p>281 ML</p>
           <div class="precio">$45 MXN</div>
-          <button class="boton" onclick="enviarPedido('CAFE OLE', 45)">Seleccionar</button>
+          <button class="boton" onclick="enviarPedido('CAFE OLE')">Seleccionar</button>
         </div>
       </div>
       
@@ -411,10 +480,10 @@ h2 {
   </main>
   
   <script>
-  const urlCaja = 'https://script.google.com/macros/s/AKfycbxOcjzzFZ_gTtuBSG3-goKhe2JQr9REQj6LxQqigojrreTExr4vvd22jTMPFG1-Zeiz/exec'; // Sustituye con tu URL real
+  const urlCaja = 'https://script.google.com/macros/s/AKfycbz3g8hd4IOUzEfN4AEoiUQSOWf5EEk5yviAL31mh5OFpdNHFaQc-V3dUxQA6JU6xzxQ/exec'; // Sustituye con tu URL real
   const urlCocina = 'https://script.google.com/macros/s/AKfycbyYWN7HqyIMQ1L_mhXX1X22aYgR_dcLW3mgqTz7rLvMgOy1hVcBfB6sSXd8hKLNKYGhLA/exec'; // Sustituye con tu URL real
 
-  function enviarPedido(combo, precio) {
+  function enviarPedido(combo) {
     const data = new URLSearchParams();
     data.append('combo', combo);
     data.append('precio', precio);
@@ -449,7 +518,6 @@ h2 {
   }
 </script>
 
-
   <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
     <p>Gracias por visitarnos</p>
   </div>
@@ -465,7 +533,39 @@ h2 {
       .catch(err => console.log("Error al registrar SW", err));
   }
 </script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionamos todas las secciones principales y las pestañas
+    const sections = document.querySelectorAll("main");
+    const navLinks = document.querySelectorAll(".pestaña");
 
+    // Detectamos cada vez que el usuario hace scroll en la página
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      // Revisamos en qué sección estamos basándonos en la posición de la pantalla
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        
+        // Restamos 180px para compensar el tamaño de tu header fijo
+        if (window.scrollY >= sectionTop - 180) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      // Recorremos todas las pestañas para actualizar su color
+      navLinks.forEach((link) => {
+        link.classList.remove("destacada"); // Quitamos el color a todas
+        
+        // Si el enlace coincide con la sección actual, lo iluminamos
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("destacada");
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
