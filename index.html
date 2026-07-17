@@ -534,31 +534,46 @@
   }
 </script>
   
-  <script>
+<script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Seleccionamos todas las secciones principales y las pestañas
     const sections = document.querySelectorAll("main");
     const navLinks = document.querySelectorAll(".pestaña");
+    let pausaScroll = false; // Variable para evitar conflictos al hacer clic
 
-    // Detectamos cada vez que el usuario hace scroll en la página
+    // 1. Efecto inmediato al hacer clic
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        pausaScroll = true; // Pausamos la lectura del scroll temporalmente
+        
+        // Quitamos el color a todas y se lo ponemos a la que acabas de tocar
+        navLinks.forEach(nav => nav.classList.remove("destacada"));
+        this.classList.add("destacada");
+
+        // Volvemos a activar la lectura del scroll después de 800 milisegundos 
+        // (tiempo suficiente para que termine el deslizamiento suave)
+        setTimeout(() => {
+          pausaScroll = false;
+        }, 800);
+      });
+    });
+
+    // 2. Efecto al deslizar la pantalla manualmente
     window.addEventListener("scroll", () => {
+      if (pausaScroll) return; // Si hicimos clic, ignoramos esto temporalmente
+
       let current = "";
 
-      // Revisamos en qué sección estamos basándonos en la posición de la pantalla
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         
-        // Restamos 180px para compensar el tamaño de tu header fijo
-        if (window.scrollY >= sectionTop - 180) {
+        // Usamos 100px compensando el nuevo tamaño reducido de tu header
+        if (window.scrollY >= sectionTop - 100) {
           current = section.getAttribute("id");
         }
       });
 
-      // Recorremos todas las pestañas para actualizar su color
       navLinks.forEach((link) => {
-        link.classList.remove("destacada"); // Quitamos el color a todas
-        
-        // Si el enlace coincide con la sección actual, lo iluminamos
+        link.classList.remove("destacada");
         if (link.getAttribute("href") === `#${current}`) {
           link.classList.add("destacada");
         }
