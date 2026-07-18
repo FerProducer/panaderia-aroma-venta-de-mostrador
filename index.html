@@ -214,6 +214,26 @@
         height: 200px;
       }
     }
+    
+    .boton-encuesta {
+  background-color: #4E3629; /* Tu color principal */
+  color: #F3EFE0;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.boton-encuesta:hover {
+  background-color: #3b281f; /* Un tono más oscuro al pasar el mouse */
+  transform: scale(1.05);
+  color: #fff;
+}
+    
   </style>
 </head>
 <body>
@@ -484,6 +504,11 @@
       <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
     <p>Gracias por visitarnos</p>
   </div>
+     <div style="text-align: center; margin: 40px 0;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7LZxMMbTSdkZqrlaH2iz0E-bHAF3k5vc5AqqqhntJbj2zig/viewform?usp=dialog" target="_blank" class="boton-encuesta">
+    ¡Queremos escucharte! Contesta nuestra encuesta
+  </a>
+</div>
   </footer>
   
  <script>
